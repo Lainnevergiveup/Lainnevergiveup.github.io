@@ -1,0 +1,59 @@
+{
+  "site": {
+    "title": "Lain 的技术博客",
+    "description": "一个现代化的个人技术博客",
+    "subtitle": "探索技术，分享经验"
+  },
+  "nav": {
+    "home": "首页",
+    "categories": "分类",
+    "tags": "标签",
+    "about": "关于",
+    "search": "搜索文章..."
+  },
+  "home": {
+    "latestPosts": "最新文章",
+    "readMore": "阅读更多",
+    "viewAll": "查看全部"
+  },
+  "post": {
+    "publishedOn": "发布于",
+    "readingTime": "阅读时间",
+    "tableOfContents": "目录",
+    "relatedPosts": "相关文章",
+    "comments": "评论"
+  },
+  "categories": {
+    "title": "文章分类",
+    "allCategories": "所有分类",
+    "postsIn": "{category} 中的文章",
+    "noPosts": "该分类下暂无文章"
+  },
+  "tags": {
+    "title": "标签",
+    "allTags": "所有标签",
+    "postsWithTag": "包含标签 \"{tag}\" 的文章",
+    "noPosts": "该标签下暂无文章"
+  },
+  "about": {
+    "title": "关于我"
+  },
+  "search": {
+    "title": "搜索",
+    "placeholder": "输入关键词搜索...",
+    "noResults": "未找到相关结果"
+  },
+  "footer": {
+    "copyright": "版权所有"
+  },
+  "theme": {
+    "light": "浅色模式",
+    "dark": "深色模式",
+    "system": "跟随系统"
+  },
+  "lang": {
+    "switch": "切换语言",
+    "zh": "中文",
+    "en": "English"
+  }
+}

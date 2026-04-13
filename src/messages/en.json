@@ -1,0 +1,59 @@
+{
+  "site": {
+    "title": "Lain's Tech Blog",
+    "description": "A modern personal tech blog",
+    "subtitle": "Explore technology, share experience"
+  },
+  "nav": {
+    "home": "Home",
+    "categories": "Categories",
+    "tags": "Tags",
+    "about": "About",
+    "search": "Search posts..."
+  },
+  "home": {
+    "latestPosts": "Latest Posts",
+    "readMore": "Read More",
+    "viewAll": "View All"
+  },
+  "post": {
+    "publishedOn": "Published on",
+    "readingTime": "Reading time",
+    "tableOfContents": "Table of Contents",
+    "relatedPosts": "Related Posts",
+    "comments": "Comments"
+  },
+  "categories": {
+    "title": "Categories",
+    "allCategories": "All Categories",
+    "postsIn": "Posts in {category}",
+    "noPosts": "No posts in this category"
+  },
+  "tags": {
+    "title": "Tags",
+    "allTags": "All Tags",
+    "postsWithTag": "Posts tagged \"{tag}\"",
+    "noPosts": "No posts with this tag"
+  },
+  "about": {
+    "title": "About Me"
+  },
+  "search": {
+    "title": "Search",
+    "placeholder": "Enter keywords to search...",
+    "noResults": "No results found"
+  },
+  "footer": {
+    "copyright": "All rights reserved"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "lang": {
+    "switch": "Switch Language",
+    "zh": "中文",
+    "en": "English"
+  }
+}
