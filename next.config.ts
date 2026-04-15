@@ -9,9 +9,6 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   trailingSlash: true,
-  turbopack: {
-    root: '/Users/lain/Documents/personal-website',
-  },
 };
 
 export default withNextIntl(nextConfig);
