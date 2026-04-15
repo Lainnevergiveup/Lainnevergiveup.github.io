@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { execSync } from 'child_process';
 
-const VAULT_DIR = '～/Documents/Obsidian Vault/blogs';
+const VAULT_DIR = '~/Documents/Obsidian Vault/blogs';
 const BLOG_DIR = path.join(process.cwd(), 'content/posts');
 const DEBOUNCE_MS = 3000; // Wait 3s after last change before deploying
 
@@ -29,7 +29,6 @@ function deploy() {
   try {
     console.log('\n[Deploying] Building and pushing...');
     execSync('node scripts/build-search-index.mjs', { stdio: 'inherit', cwd: process.cwd() });
-
     execSync('git add -A', { stdio: 'inherit', cwd: process.cwd() });
 
     // Check if there are changes
@@ -69,7 +68,7 @@ console.log('[Info] Write or edit .md files in Obsidian, changes auto-deploy in 
 console.log('[Info] Press Ctrl+C to stop\n');
 
 // Watch the vault directory recursively
-fs.watch(VAULT_DIR, { recursive: true }, (eventType, filename) => {
+fs.watch(VAULT_DIR, { recursive: true }, (_eventType, filename) => {
   if (!filename || !/\.(md|mdx)$/.test(filename)) return;
   console.log(`[Changed] ${filename}`);
   scheduleDeploy();

@@ -2,8 +2,8 @@
 # Sync blog posts from Obsidian Vault to content/posts/
 # Only syncs .md/.mdx files from the "blogs" folder
 
-VAULT_DIR="～/Documents/Obsidian Vault/blogs"
-BLOG_DIR="～/Documents/personal-website/content/posts"
+VAULT_DIR="~/Documents/Obsidian Vault/blogs"
+BLOG_DIR="~/Documents/personal-website/content/posts"
 
 # Use rsync to sync (no --delete, preserves existing posts)
 rsync -av \
