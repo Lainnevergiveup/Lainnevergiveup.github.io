@@ -21,6 +21,9 @@ export function generateStaticParams() {
     });
   }
 
+  // Also generate the root /categories/ page (empty slug)
+  locales.forEach((locale) => params.push({ locale, slug: [] }));
+
   collectPaths(tree);
   return params;
 }

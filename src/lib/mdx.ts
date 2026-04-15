@@ -1,18 +1,22 @@
 import { remark } from 'remark';
 import remarkGfm from 'remark-gfm';
-import remarkHtml from 'remark-html';
+import remarkRehype from 'remark-rehype';
+import rehypeSlug from 'rehype-slug';
+import rehypeStringify from 'rehype-stringify';
 import { codeToHtml } from 'shiki';
 
 export async function renderMarkdown(markdown: string): Promise<string> {
-  // First pass: process with remark
+  // Process: remark → remark-rehype (with rehype-slug for heading IDs) → stringify
   const result = await remark()
     .use(remarkGfm)
-    .use(remarkHtml, { sanitize: false })
+    .use(remarkRehype)
+    .use(rehypeSlug)
+    .use(rehypeStringify)
     .process(markdown);
 
   let html = result.toString();
 
-  // Shiki code highlighting: find <code class="language-xxx"> blocks
+  // Shiki code highlighting: find <pre><code class="language-xxx"> blocks
   const codeBlockRegex = /<pre><code class="language-(\w+)">([\s\S]*?)<\/code><\/pre>/g;
   const matches = [...html.matchAll(codeBlockRegex)];
 
