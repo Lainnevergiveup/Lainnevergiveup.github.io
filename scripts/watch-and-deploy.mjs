@@ -67,7 +67,9 @@ console.log('[Info] Press Ctrl+C to stop\n');
 
 // Watch the vault directory recursively
 fs.watch(VAULT_DIR, { recursive: true }, (_eventType, filename) => {
-  if (!filename || !/\.(md|mdx)$/.test(filename)) return;
+  if (!filename) return;
+  // Sync on .md/.mdx changes AND directory moves (no extension)
+  if (!/\.(md|mdx)$/.test(filename) && /\.\w+$/.test(filename)) return;
   console.log(`[Changed] ${filename}`);
   scheduleDeploy();
 });
