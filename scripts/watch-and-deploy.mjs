@@ -1,8 +1,9 @@
 import fs from 'fs';
 import path from 'path';
 import { execSync } from 'child_process';
+import { homedir } from 'os';
 
-const VAULT_DIR = '~/Documents/Obsidian Vault/blogs';
+const VAULT_DIR = path.join(homedir(), 'Documents/Obsidian Vault/blogs');
 const BLOG_DIR = path.join(process.cwd(), 'content/posts');
 const DEBOUNCE_MS = 3000; // Wait 3s after last change before deploying
 
@@ -59,11 +60,7 @@ function scheduleDeploy() {
   }, DEBOUNCE_MS);
 }
 
-// Initial sync
-sync();
-deploy();
-
-console.log(`\n[Watching] Monitoring "${VAULT_DIR}" for changes...`);
+console.log(`[Watching] Monitoring "${VAULT_DIR}" for changes...`);
 console.log('[Info] Write or edit .md files in Obsidian, changes auto-deploy in ~3s');
 console.log('[Info] Press Ctrl+C to stop\n');
 

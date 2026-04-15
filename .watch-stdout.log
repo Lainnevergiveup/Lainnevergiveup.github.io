@@ -1,113 +1,20 @@
-
-[Synchronizing] Syncing from Obsidian Vault...
-Transfer starting: 0 files
-
-sent 29 bytes  received 20 bytes  490000 bytes/sec
-total size is 0  speedup is 0.00
-
-[Deploying] Building and pushing...
-Search index built: 5 posts
-[main 91672d8] auto: blog post update 2026-04-15 04:01:23
- 4 files changed, 16 insertions(+), 5 deletions(-)
- create mode 100644 .watch-stderr.log
- create mode 100644 .watch-stdout.log
-[Deployed] Pushed to GitHub - deployment will auto-trigger
-
-[Watching] Monitoring "~/Documents/Obsidian Vault/blogs" for changes...
+[Watching] Monitoring "/Users/lain/Documents/Obsidian Vault/blogs" for changes...
 [Info] Write or edit .md files in Obsidian, changes auto-deploy in ~3s
 [Info] Press Ctrl+C to stop
 
+[Changed] DS/data-structure-overview.md
+[Changed] DS/data-structure-overview.md
+[Changed] DS/data-structure-overview.md
 
 [Synchronizing] Syncing from Obsidian Vault...
-Transfer starting: 0 files
+Transfer starting: 3 files
+./
+DS/
+DS/data-structure-overview.md
 
-sent 29 bytes  received 20 bytes  490000 bytes/sec
-total size is 0  speedup is 0.00
-
-[Deploying] Building and pushing...
-Search index built: 5 posts
-[main 2813bd0] auto: blog post update 2026-04-15 04:01:31
- 2 files changed, 43 insertions(+)
-[Deployed] Pushed to GitHub - deployment will auto-trigger
-
-[Watching] Monitoring "~/Documents/Obsidian Vault/blogs" for changes...
-[Info] Write or edit .md files in Obsidian, changes auto-deploy in ~3s
-[Info] Press Ctrl+C to stop
-
-
-[Synchronizing] Syncing from Obsidian Vault...
-Transfer starting: 0 files
-
-sent 29 bytes  received 20 bytes  490000 bytes/sec
-total size is 0  speedup is 0.00
-
-[Deploying] Building and pushing...
-Search index built: 5 posts
-[main 47cd694] auto: blog post update 2026-04-15 04:01:41
- 2 files changed, 41 insertions(+)
-[Deployed] Pushed to GitHub - deployment will auto-trigger
-
-[Watching] Monitoring "~/Documents/Obsidian Vault/blogs" for changes...
-[Info] Write or edit .md files in Obsidian, changes auto-deploy in ~3s
-[Info] Press Ctrl+C to stop
-
-
-[Synchronizing] Syncing from Obsidian Vault...
-Transfer starting: 0 files
-
-sent 29 bytes  received 20 bytes  490000 bytes/sec
-total size is 0  speedup is 0.00
-
-[Deploying] Building and pushing...
-Search index built: 5 posts
-[main d5d3dab] auto: blog post update 2026-04-15 04:01:51
- 2 files changed, 41 insertions(+)
-[Deployed] Pushed to GitHub - deployment will auto-trigger
-
-[Watching] Monitoring "~/Documents/Obsidian Vault/blogs" for changes...
-[Info] Write or edit .md files in Obsidian, changes auto-deploy in ~3s
-[Info] Press Ctrl+C to stop
-
-
-[Synchronizing] Syncing from Obsidian Vault...
-Transfer starting: 0 files
-
-sent 29 bytes  received 20 bytes  490000 bytes/sec
-total size is 0  speedup is 0.00
-
-[Deploying] Building and pushing...
-Search index built: 5 posts
-[main da5730d] auto: blog post update 2026-04-15 04:02:02
- 2 files changed, 41 insertions(+)
-[Deployed] Pushed to GitHub - deployment will auto-trigger
-
-[Watching] Monitoring "~/Documents/Obsidian Vault/blogs" for changes...
-[Info] Write or edit .md files in Obsidian, changes auto-deploy in ~3s
-[Info] Press Ctrl+C to stop
-
-
-[Synchronizing] Syncing from Obsidian Vault...
-Transfer starting: 0 files
-
-sent 29 bytes  received 20 bytes  490000 bytes/sec
-total size is 0  speedup is 0.00
-
-[Deploying] Building and pushing...
-Search index built: 5 posts
-[main b942dff] auto: blog post update 2026-04-15 04:02:12
- 2 files changed, 41 insertions(+)
-[Deployed] Pushed to GitHub - deployment will auto-trigger
-
-[Watching] Monitoring "~/Documents/Obsidian Vault/blogs" for changes...
-[Info] Write or edit .md files in Obsidian, changes auto-deploy in ~3s
-[Info] Press Ctrl+C to stop
-
-
-[Synchronizing] Syncing from Obsidian Vault...
-Transfer starting: 0 files
-
-sent 29 bytes  received 20 bytes  490000 bytes/sec
-total size is 0  speedup is 0.00
+sent 1152 bytes  received 54 bytes  294146 bytes/sec
+total size is 939  speedup is 0.78
+[Synced] Files synchronized successfully
 
 [Deploying] Building and pushing...
 Search index built: 5 posts
