@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "eslint",
     "new-post": "node scripts/new-post.mjs",
-    "build-index": "node scripts/build-search-index.mjs"
+    "build-index": "node scripts/build-search-index.mjs",
+    "watch": "node scripts/watch-and-deploy.mjs",
+    "sync": "bash scripts/sync-from-obsidian.sh"
   },
   "dependencies": {
     "flexsearch": "^0.8.212",
