@@ -2,11 +2,11 @@
 # Sync blog posts from Obsidian Vault to content/posts/
 # Only syncs .md/.mdx files from the "blogs" folder
 
-VAULT_DIR="~/Documents/Obsidian Vault/blogs"
-BLOG_DIR="~/Documents/personal-website/content/posts"
+VAULT_DIR="$HOME/Documents/Obsidian Vault/blogs"
+BLOG_DIR="$HOME/Documents/personal-website/content/posts"
 
-# Use rsync to sync (no --delete, preserves existing posts)
-rsync -av \
+# Use rsync to sync (with --delete, Obsidian Vault is the source of truth)
+rsync -av --delete \
   --exclude='.*' \
   --exclude='*.excalidraw.md' \
   "$VAULT_DIR/" "$BLOG_DIR/"

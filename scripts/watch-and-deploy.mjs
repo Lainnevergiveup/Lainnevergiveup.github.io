@@ -14,7 +14,7 @@ function sync() {
   console.log('\n[Synchronizing] Syncing from Obsidian Vault...');
   try {
     execSync(
-      `rsync -av --exclude='.*' --exclude='*.excalidraw.md' "${VAULT_DIR}/" "${BLOG_DIR}/"`,
+      `rsync -av --delete --exclude='.*' --exclude='*.excalidraw.md' "${VAULT_DIR}/" "${BLOG_DIR}/"`,
       { stdio: 'inherit' }
     );
     console.log('[Synced] Files synchronized successfully');
