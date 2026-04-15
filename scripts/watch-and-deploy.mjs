@@ -29,6 +29,7 @@ function deploy() {
 
   try {
     console.log('\n[Deploying] Building and pushing...');
+    execSync('out')
     execSync('node scripts/build-search-index.mjs', { stdio: 'inherit', cwd: process.cwd() });
     execSync('git add -A', { stdio: 'inherit', cwd: process.cwd() });
 
