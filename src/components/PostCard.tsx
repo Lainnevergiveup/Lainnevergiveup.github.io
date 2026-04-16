@@ -18,7 +18,7 @@ export function PostCard({ post, index = 0 }: PostCardProps) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.05, duration: 0.3 }}
-      className="group bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6 hover:shadow-lg hover:border-blue-200 dark:hover:border-blue-800 transition-all duration-300"
+      className="group bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-xl border border-gray-200 dark:border-gray-700 p-6 hover:shadow-lg hover:border-blue-200 dark:hover:border-blue-800 transition-all duration-300"
     >
       <Link href={`/${locale}/posts/${post.slug}`}>
         <div className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 mb-3">
@@ -42,12 +42,14 @@ export function PostCard({ post, index = 0 }: PostCardProps) {
         </p>
         <div className="flex flex-wrap gap-2">
           {post.tags.map((tag) => (
-            <span
+            <Link
               key={tag}
-              className="px-2 py-0.5 text-xs rounded-full bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300"
+              href={`/${locale}/tags/${tag}`}
+              onClick={(e) => e.stopPropagation()}
+              className="px-2 py-0.5 text-xs rounded-full bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-blue-100 dark:hover:bg-blue-900 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
             >
               #{tag}
-            </span>
+            </Link>
           ))}
         </div>
       </Link>

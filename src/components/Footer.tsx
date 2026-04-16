@@ -7,7 +7,7 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900">
+    <footer className="border-t border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8">
         <div className="text-center text-sm text-gray-500 dark:text-gray-400">
           <p>&copy; {year} Lain. {t('copyright')}.</p>

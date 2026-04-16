@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Force dark mode to only use .dark class (not prefers-color-scheme media query) */
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* Shiki theme variables */
 :root {
   --shiki-light-bg: #ffffff;
