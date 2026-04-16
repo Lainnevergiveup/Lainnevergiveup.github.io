@@ -20,8 +20,7 @@ export function Header() {
 
   const links = [
     { href: '/', label: t('home') },
-    { href: '/categories', label: t('categories') },
-    { href: '/tags', label: t('tags') },
+    { href: '/github', label: 'GitHub' },
     { href: '/about', label: t('about') },
   ];
 
