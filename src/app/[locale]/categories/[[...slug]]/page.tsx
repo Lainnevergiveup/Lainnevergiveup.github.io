@@ -27,7 +27,7 @@ export function generateStaticParams() {
   function collectPaths(node: CategoryNode, currentPath: string[] = []) {
     if (currentPath.length > 0) {
       locales.forEach((locale) =>
-        params.push({ locale, slug: currentPath.map(encodeSlug) })
+        params.push({ locale, slug: [...currentPath] })
       );
     }
     node.children.forEach((child) => {
