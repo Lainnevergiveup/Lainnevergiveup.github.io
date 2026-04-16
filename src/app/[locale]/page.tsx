@@ -70,7 +70,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                 return (
                   <Link
                     key={cat.slug}
-                    href={`/${locale}/categories/${cat.slug}`}
+                    href={`/${locale}/categories/${encodeURIComponent(cat.slug)}`}
                     className="flex items-center justify-between px-2 py-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors text-sm"
                   >
                     <span className="text-gray-700 dark:text-gray-300">{cat.name}</span>

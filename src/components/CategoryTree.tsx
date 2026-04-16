@@ -15,21 +15,24 @@ function CategoryTreeNode({ node, depth = 0 }: CategoryTreeProps) {
   const [expanded, setExpanded] = useState(depth < 2);
   const hasChildren = node.children.size > 0;
 
+  const encodedPath = node.path
+    .split('/')
+    .map((seg) => encodeURIComponent(seg))
+    .join('/');
+
   return (
     <div>
       <div
-        className={`flex items-center gap-1 py-1.5 ${
-          depth === 0 ? '' : ''
-        }`}
+        className="flex items-center gap-1 py-1.5"
         style={{ paddingLeft: `${depth * 16}px` }}
       >
         {hasChildren && (
           <button
             onClick={() => setExpanded(!expanded)}
-            className="p-0.5 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
+            className="p-0.5 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors"
           >
             <svg
-              className={`w-4 h-4 transition-transform ${expanded ? 'rotate-90' : ''}`}
+              className={`w-4 h-4 text-gray-400 dark:text-gray-500 transition-transform ${expanded ? 'rotate-90' : ''}`}
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -40,8 +43,8 @@ function CategoryTreeNode({ node, depth = 0 }: CategoryTreeProps) {
         )}
         {!hasChildren && <span className="w-5" />}
         <Link
-          href={`/${locale}/categories/${node.path}`}
-          className="text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium"
+          href={`/${locale}/categories/${encodedPath}`}
+          className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
         >
           {node.name}
         </Link>
@@ -62,9 +65,9 @@ function CategoryTreeNode({ node, depth = 0 }: CategoryTreeProps) {
 
 export function CategoryTree({ node }: { node: CategoryNode }) {
   return (
-    <div className="space-y-1">
+    <div className="space-y-0.5">
       {Array.from(node.children.values()).map((child) => (
-        <CategoryTreeNode key={child.path} node={child} depth={0} />
+        <CategoryTreeNode key={child.path} node={child} />
       ))}
     </div>
   );

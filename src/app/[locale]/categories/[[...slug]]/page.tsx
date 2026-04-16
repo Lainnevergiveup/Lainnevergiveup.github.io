@@ -6,6 +6,18 @@ import { CategoryTree } from '@/components/CategoryTree';
 import type { CategoryNode } from '@/lib/types';
 import Link from 'next/link';
 
+function encodeSlug(seg: string): string {
+  return encodeURIComponent(seg);
+}
+
+function decodeSlug(seg: string): string {
+  try {
+    return decodeURIComponent(seg);
+  } catch {
+    return seg;
+  }
+}
+
 export function generateStaticParams() {
   const posts = getPostMetaList();
   const tree = buildCategoryTree(posts);
@@ -14,16 +26,16 @@ export function generateStaticParams() {
 
   function collectPaths(node: CategoryNode, currentPath: string[] = []) {
     if (currentPath.length > 0) {
-      locales.forEach((locale) => params.push({ locale, slug: [...currentPath] }));
+      locales.forEach((locale) =>
+        params.push({ locale, slug: currentPath.map(encodeSlug) })
+      );
     }
     node.children.forEach((child) => {
       collectPaths(child, [...currentPath, child.slug]);
     });
   }
 
-  // Also generate the root /categories/ page (empty slug)
   locales.forEach((locale) => params.push({ locale, slug: [] }));
-
   collectPaths(tree);
   return params;
 }
@@ -33,12 +45,15 @@ export default async function CategoriesPage({
 }: {
   params: Promise<{ locale: string; slug?: string[] }>;
 }) {
-  const { locale, slug } = await params;
+  const { locale, slug: rawSlug } = await params;
   setRequestLocale(locale);
   const t = await getTranslations('categories');
 
   const posts = getPostMetaList();
   const tree = buildCategoryTree(posts);
+
+  // Decode slug segments for internal use
+  const slug = rawSlug?.map(decodeSlug);
 
   // No slug: show the overview page with the full tree
   if (!slug || slug.length === 0) {
@@ -79,7 +94,7 @@ export default async function CategoriesPage({
           <span key={i}>
             {' / '}
             <Link
-              href={`/${locale}/categories/${slug.slice(0, i + 1).join('/')}`}
+              href={`/${locale}/categories/${slug.slice(0, i + 1).map(encodeSlug).join('/')}`}
               className="hover:text-blue-600 dark:hover:text-blue-400"
             >
               {seg}

@@ -45,7 +45,7 @@ export default async function PostPage({
               <>
                 <span>·</span>
                 <Link
-                  href={`/${locale}/categories/${post.categoryPath.join('/')}`}
+                  href={`/${locale}/categories/${post.categoryPath.map((s) => encodeURIComponent(s)).join('/')}`}
                   className="text-blue-600 dark:text-blue-400 hover:underline"
                 >
                   {post.categoryPath.join(' / ')}
