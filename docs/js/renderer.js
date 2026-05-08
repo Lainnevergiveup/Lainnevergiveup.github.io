@@ -252,32 +252,129 @@ const Renderer = {
     show(el);
   },
 
-  renderGitHubStats(config, lang) {
+  /* ── Client-side GitHub stats (no external service dependency) ── */
+
+  _statsCache: null,
+
+  async _fetchGitHubStats(username) {
+    if (this._statsCache) return this._statsCache;
+    const proxy = 'https://api.github.com';
+    const [userRes, reposRes] = await Promise.all([
+      fetch(`${proxy}/users/${username}`),
+      fetch(`${proxy}/users/${username}/repos?per_page=100&sort=updated`)
+    ]);
+    if (!userRes.ok || !reposRes.ok) throw new Error('GitHub API error');
+    const user = await userRes.json();
+    const repos = await reposRes.json();
+    const totalStars = repos.reduce((s, r) => s + r.stargazers_count, 0);
+    const totalForks = repos.reduce((s, r) => s + r.forks_count, 0);
+    const langs = {};
+    for (const r of repos) {
+      if (r.language) langs[r.language] = (langs[r.language] || 0) + 1;
+    }
+    this._statsCache = { user, totalStars, totalForks, langs, repoCount: repos.length };
+    return this._statsCache;
+  },
+
+  _statsCardSVG(stats, lang) {
+    const label = lang === 'cn'
+      ? ['公开仓库', '总星数', '关注者', '总 Fork']
+      : ['Public Repos', 'Total Stars', 'Followers', 'Total Forks'];
+    const values = [stats.repoCount, stats.totalStars, stats.user.followers, stats.totalForks];
+    const icons = [
+      'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z',
+      'M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z',
+      'M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z',
+      'M6 2v6H2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8h-4V2H6zm2 2h8v4H8V4zm-4 8h16v8H4v-8z'
+    ];
+
+    let items = '';
+    for (let i = 0; i < 4; i++) {
+      items += `
+        <g transform="translate(${i * 130}, 0)">
+          <circle cx="20" cy="20" r="18" fill="none" stroke="#A8B8D8" stroke-width="1.5" opacity="0.3"/>
+          <path d="${icons[i]}" transform="translate(8, 8) scale(0.85)" fill="#A8B8D8" opacity="0.7"/>
+          <text x="48" y="16" fill="#A8B8D8" font-size="20" font-weight="600" font-family="Segoe UI, Ubuntu, sans-serif">${values[i]}</text>
+          <text x="48" y="32" fill="#8B949E" font-size="11" font-family="Segoe UI, Ubuntu, sans-serif">${label[i]}</text>
+        </g>`;
+    }
+
+    return `<svg xmlns="http://www.w3.org/2000/svg" width="520" height="48" viewBox="0 0 520 48">${items}</svg>`;
+  },
+
+  _langChartSVG(stats, lang) {
+    const entries = Object.entries(stats.langs).sort((a, b) => b[1] - a[1]).slice(0, 6);
+    if (!entries.length) return '';
+    const total = entries.reduce((s, e) => s + e[1], 0);
+    const colors = { 'Java': '007396', 'Python': '3776AB', 'JavaScript': 'F7DF1E', 'TypeScript': '3178C6', 'Shell': '89E051', 'Go': '00ADD8', 'Rust': 'DEA584', 'C++': '00599C', 'C': '555555', 'HTML': 'E34C26', 'CSS': '563D7C', 'Ruby': '701516' };
+    const fallback = ['6B7280', '9CA3AF', '4B5563', '374151', '1F2937', '111827'];
+    const title = lang === 'cn' ? 'Top 语言' : 'Top Languages';
+
+    let bars = '';
+    let x = 0;
+    entries.forEach((entry, i) => {
+      const pct = (entry[1] / total * 100);
+      const w = Math.max(pct * 4.8, 2);
+      const c = colors[entry[0]] || fallback[i % fallback.length];
+      bars += `<rect x="${x}" y="0" width="${w}" height="14" rx="3" fill="#${c}" opacity="0.85"/>`;
+      x += w + 2;
+    });
+
+    let legend = '';
+    entries.forEach((entry, i) => {
+      const pct = (entry[1] / total * 100).toFixed(1);
+      const c = colors[entry[0]] || fallback[i % fallback.length];
+      const col = i < 3 ? 0 : 200;
+      const row = i < 3 ? i : i - 3;
+      legend += `
+        <g transform="translate(${col}, ${26 + row * 20})">
+          <circle cx="6" cy="6" r="5" fill="#${c}"/>
+          <text x="16" y="10" fill="#C9D1D9" font-size="12" font-family="Segoe UI, Ubuntu, sans-serif">${entry[0]}</text>
+          <text x="120" y="10" fill="#8B949E" font-size="12" font-family="Segoe UI, Ubuntu, sans-serif">${pct}%</text>
+        </g>`;
+    });
+
+    const h = 26 + Math.ceil(entries.length / 3) * 20 + 10;
+    return `<svg xmlns="http://www.w3.org/2000/svg" width="520" height="${h}" viewBox="0 0 520 ${h}">
+      <text x="0" y="12" fill="#A8B8D8" font-size="14" font-weight="600" font-family="Segoe UI, Ubuntu, sans-serif">${title}</text>
+      <g transform="translate(0, 18)">${bars}</g>
+      ${legend}
+    </svg>`;
+  },
+
+  async renderGitHubStats(config, lang) {
     const el = $('github-stats');
     if (config.SHOW_GITHUB_STATS !== 'yes') { hide(el); return; }
 
-    const user = config.USERNAME;
     const title = lang === 'cn' ? 'GitHub 统计' : 'GitHub Stats';
-    el.innerHTML = `
-      <h2 class="section-title">${title}</h2>
-      <div class="stats-container">
-        <img src="https://github-readme-stats-kappa-steel.vercel.app/api?username=${user}&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&icon_color=A8B8D8&title_color=A8B8D8&text_color=8B949E" alt="GitHub Stats" loading="lazy">
-        <img src="https://github-readme-stats-kappa-steel.vercel.app/api/top-langs/?username=${user}&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A8B8D8&text_color=8B949E" alt="Top Languages" loading="lazy">
-        <img src="https://github-readme-streak-stats.herokuapp.com/?user=${user}&theme=tokyonight&hide_border=true&background=0D1117&ring=A8B8D8&fire=A8B8D8&currStreakLabel=A8B8D8" alt="Streak Stats" loading="lazy">
-      </div>`;
+    el.innerHTML = `<h2 class="section-title">${title}</h2><div class="stats-container" id="stats-content"><span class="loading-text">${lang === 'cn' ? '加载中...' : 'Loading...'}</span></div>`;
     show(el);
+
+    try {
+      const stats = await this._fetchGitHubStats(config.USERNAME);
+      const contentEl = $('stats-content');
+      if (!contentEl) return;
+      contentEl.innerHTML = this._statsCardSVG(stats, lang) + this._langChartSVG(stats, lang);
+    } catch (e) {
+      const contentEl = $('stats-content');
+      if (contentEl) contentEl.innerHTML = `<span class="loading-text">${lang === 'cn' ? '加载失败' : 'Failed to load stats'}</span>`;
+      console.error('Stats load failed:', e);
+    }
   },
 
-  renderActivity(config, lang) {
+  async renderActivity(config, lang) {
     const el = $('activity');
-    if (config.SHOW_ACTIVITY_GRAPH !== 'yes') { hide(el); return; }
+    if (config.SHOW_ACTIVITY_GRAPH !== 'yes' && config.SHOW_CONTRIBUTION_SNAKE !== 'yes') { hide(el); return; }
 
     const user = config.USERNAME;
-    const title = lang === 'cn' ? '活跃度' : 'Activity';
+    const title = lang === 'cn' ? '贡献' : 'Contributions';
     let html = `<h2 class="section-title">${title}</h2><div class="stats-container">`;
-    html += `<img src="https://github-readme-activity-graph.vercel.app/graph?username=${user}&theme=tokyo-night&hide_border=true&bg_color=0D1117&color=A8B8D8&point=A8B8D8&line=A8B8D8" alt="Activity Graph" loading="lazy">`;
+
+    if (config.SHOW_ACTIVITY_GRAPH === 'yes') {
+      html += `<a href="https://github.com/${user}" target="_blank" rel="noopener"><img src="https://ghchart.rshah.org/${user}?theme=tokyonight" alt="Contribution Chart" loading="lazy" onerror="this.style.display='none'"></a>`;
+    }
     if (config.SHOW_CONTRIBUTION_SNAKE === 'yes') {
-      html += `<img src="https://raw.githubusercontent.com/${user}/${user}/output/github-contribution-grid-snake.svg" alt="Contribution Snake" loading="lazy">`;
+      html += `<img src="https://raw.githubusercontent.com/${user}/${user}/output/github-contribution-grid-snake.svg" alt="Contribution Snake" loading="lazy" onerror="this.style.display='none'">`;
     }
     html += '</div>';
     el.innerHTML = html;

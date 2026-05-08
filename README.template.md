@@ -254,23 +254,8 @@ An experimental RAG knowledge base system for document retrieval.
 
 <div align="center">
 
-<img height="170" src="https://github-readme-stats-kappa-steel.vercel.app/api?username={{USERNAME}}&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&icon_color=A8B8D8&title_color=A8B8D8&text_color=8B949E" />
-&nbsp;&nbsp;
-<img height="170" src="https://github-readme-stats-kappa-steel.vercel.app/api/top-langs/?username={{USERNAME}}&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A8B8D8&text_color=8B949E" />
-
-<br/>
-
-<img src="https://github-readme-streak-stats.herokuapp.com/?user={{USERNAME}}&theme=tokyonight&hide_border=true&background=0D1117&ring=A8B8D8&fire=A8B8D8&currStreakLabel=A8B8D8" alt="GitHub Streak" />
-
-</div>
-
----
-
-## Activity Graph
-
-<div align="center">
-
-<img src="https://github-readme-activity-graph.vercel.app/graph?username={{USERNAME}}&theme=tokyo-night&hide_border=true&bg_color=0D1117&color=A8B8D8&point=A8B8D8&line=A8B8D8" alt="Activity Graph" />
+<!-- GitHub Stats are rendered on the live site via GitHub API -->
+[![GitHub Profile](https://img.shields.io/badge/View%20Full%20Stats-GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://{{USERNAME}}.github.io)
 
 </div>
 
