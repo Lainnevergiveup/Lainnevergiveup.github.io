@@ -1,0 +1,116 @@
+{
+  "USERNAME": "Lainnevergiveup",
+  "EMAIL": "lainhavenohair@gmail.com",
+
+  "_comment_profile": "--- Profile Links ---",
+  "BLOG": "",
+  "TWITTER": "",
+  "PROJECT_PAGE": "",
+  "DOCS_PAGE": "",
+  "RESEARCH_PAGE": "",
+  "ACADEMIC_PAGE": "",
+  "GOOGLE_SCHOLAR": "",
+  "ORCID": "",
+  "LINKEDIN": "",
+  "BILIBILI": "",
+  "ZHIHU": "",
+  "HUGGINGFACE": "",
+  "KAGGLE": "",
+
+  "_comment_nav": "--- Navigation Hub Cards (set URL to show, empty to hide) ---",
+  "BLOG_NAV": "",
+  "PROJECTS_NAV": "",
+  "RESEARCH_NAV": "",
+  "ACADEMIC_NAV": "",
+  "DOCS_NAV": "",
+  "WIKI_NAV": "",
+  "RESUME_NAV": "",
+  "DEMOS_NAV": "",
+
+  "_comment_social": "--- Social Platform Rows (auto-derived: copy value from platform key above) ---",
+  "SOCIAL_PLATFORMS": "auto",
+  "ROW_TWITTER": "",
+  "ROW_ZHIHU": "",
+  "ROW_BILIBILI": "",
+  "ROW_LINKEDIN": "",
+  "ROW_GOOGLE_SCHOLAR": "",
+  "ROW_ORCID": "",
+  "ROW_HUGGINGFACE": "",
+  "ROW_KAGGLE": "",
+
+  "_comment_contact": "--- Contact Badges ---",
+  "CONTACT_EMAIL": "",
+  "CONTACT_BLOG": "",
+  "CONTACT_TWITTER": "",
+
+  "_comment_site": "--- Website Settings ---",
+  "SITE_SUBTITLE_CN": "后端 / AI / 开源",
+  "SITE_SUBTITLE_EN": "Backend / AI / Open Source",
+  "SITE_DEFAULT_LANG": "zh",
+
+  "_comment_about": "--- About Me ---",
+  "ABOUT_CN": "专注于后端工程和 AI 系统。对分布式系统和机器学习有浓厚兴趣。通过开源项目构建长期技术积累。",
+  "ABOUT_EN": "Focused on backend engineering and AI systems. Interested in distributed systems and machine learning. Building long-term technical accumulation through open source.",
+
+  "_comment_nav_cards": "--- Navigation Cards (key references *_NAV flat key for URL) ---",
+  "NAV_CARDS": [
+    { "key": "BLOG_NAV",      "label_cn": "博客",     "label_en": "Blog",        "icon": "hashnode",    "desc_cn": "个人技术博客",     "desc_en": "Personal Tech Blog" },
+    { "key": "PROJECTS_NAV",  "label_cn": "项目",     "label_en": "Projects",    "icon": "github",      "desc_cn": "项目展示",         "desc_en": "Project Showcase" },
+    { "key": "RESEARCH_NAV",  "label_cn": "研究",     "label_en": "Research",    "icon": "flask",       "desc_cn": "研究与实验",       "desc_en": "Research & Experiments" },
+    { "key": "ACADEMIC_NAV",  "label_cn": "学术",     "label_en": "Academic",    "icon": "scholar",     "desc_cn": "学术主页",         "desc_en": "Academic Homepage" },
+    { "key": "DOCS_NAV",      "label_cn": "文档",     "label_en": "Docs",        "icon": "docs",        "desc_cn": "文档中心",         "desc_en": "Documentation Center" },
+    { "key": "WIKI_NAV",      "label_cn": "Wiki",     "label_en": "Wiki",        "icon": "wiki",        "desc_cn": "个人知识库",       "desc_en": "Personal Wiki" },
+    { "key": "RESUME_NAV",    "label_cn": "简历",     "label_en": "Resume",      "icon": "file",        "desc_cn": "简历 / CV",       "desc_en": "Resume / CV" },
+    { "key": "DEMOS_NAV",     "label_cn": "演示",     "label_en": "Demos",       "icon": "play",        "desc_cn": "演示页面",         "desc_en": "Demo Pages" }
+  ],
+
+  "_comment_tech": "--- Tech Stack ---",
+  "TECH_STACK": {
+    "languages": { "label_cn": "语言",       "label_en": "Languages",     "items": ["Python", "Java", "JavaScript", "SQL", "Bash"] },
+    "backend":   { "label_cn": "后端",       "label_en": "Backend",       "items": ["Spring Boot", "FastAPI", "Flask", "Node.js"] },
+    "database":  { "label_cn": "数据库",     "label_en": "Database",      "items": ["MySQL", "Redis", "PostgreSQL"] },
+    "ai":        { "label_cn": "AI / 数据",  "label_en": "AI / Data",     "items": ["PyTorch", "NumPy", "Pandas"] },
+    "devops":    { "label_cn": "工具",       "label_en": "DevOps",        "items": ["Git", "Linux", "Docker"] }
+  },
+
+  "_comment_projects": "--- Featured Projects ---",
+  "FEATURED_PROJECTS": [
+    {
+      "name": "Project Alpha",
+      "url": "#",
+      "desc_cn": "基于 Spring Boot 微服务架构的后端服务实验",
+      "desc_en": "A backend service experiment with Spring Boot microservices",
+      "tags": ["Java", "Spring Boot", "MySQL", "Redis"]
+    },
+    {
+      "name": "Project Beta",
+      "url": "#",
+      "desc_cn": "基于 PyTorch 和 FastAPI 的 AI 数据分析工具",
+      "desc_en": "An AI-powered data analysis tool with PyTorch and FastAPI",
+      "tags": ["Python", "PyTorch", "FastAPI", "PostgreSQL"]
+    },
+    {
+      "name": "Project Gamma",
+      "url": "#",
+      "desc_cn": "轻量级 Linux 自动化 CLI 工具集",
+      "desc_en": "A lightweight CLI toolset for Linux automation",
+      "tags": ["Bash", "Python", "Linux"]
+    },
+    {
+      "name": "Project Delta",
+      "url": "#",
+      "desc_cn": "实验性 RAG 知识库检索系统",
+      "desc_en": "An experimental RAG knowledge retrieval system",
+      "tags": ["Python", "LangChain", "Vector DB", "FastAPI"]
+    }
+  ],
+
+  "_comment_learning": "--- Learning & Research ---",
+  "LEARNING_TOPICS_CN": ["分布式系统与微服务架构", "深度学习与大语言模型应用", "系统设计模式", "开源工程实践"],
+  "LEARNING_TOPICS_EN": ["Distributed Systems & Microservices", "Deep Learning & LLM Applications", "System Design Patterns", "Open Source Engineering"],
+
+  "_comment_stats": "--- GitHub Stats ---",
+  "SHOW_GITHUB_STATS": "yes",
+  "SHOW_ACTIVITY_GRAPH": "yes",
+  "SHOW_CONTRIBUTION_SNAKE": "yes"
+}
