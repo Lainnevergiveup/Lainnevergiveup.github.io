@@ -1,0 +1,30 @@
+name: Build README
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'README.template.md'
+      - 'config.json'
+      - 'scripts/build_readme.py'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Build README from template
+        run: python scripts/build_readme.py
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git diff --quiet README.md || (git add README.md && git commit -m "chore: rebuild README from config" && git push)
