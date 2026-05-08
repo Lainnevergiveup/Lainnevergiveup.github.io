@@ -28,6 +28,33 @@
 
 ## Navigation Hub
 
+<table>
+<tr>
+
+<td align="center" width="160">
+  <a href="https://lainnevergiveup.github.io/blog">
+    <img src="https://img.shields.io/badge/Blog-0A0A0A?style=for-the-badge&logo=hashnode&logoColor=white" alt="Blog"/>
+  </a>
+  <br/><sub>Personal Tech Blog</sub>
+</td>
+
+</tr>
+<tr>
+
+</tr>
+</table>
+
+<details>
+<summary><b>Social Platforms</b></summary>
+<br>
+
+| Platform | Link |
+|----------|------|
+
+| Bilibili | [42433305](https://space.bilibili.com/42433305) |
+
+</details>
+
 ---
 
 ## Tech Stack
@@ -167,6 +194,8 @@ An experimental RAG knowledge base system for document retrieval.
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/Lainnevergiveup)
 
 [![Email](https://img.shields.io/badge/Email-D4A574?style=flat-square&logo=gmail&logoColor=white)](mailto:lainhavenohair@gmail.com)
+
+[![Blog](https://img.shields.io/badge/Blog-2962FF?style=flat-square&logo=hashnode&logoColor=white)](https://lainnevergiveup.github.io/blog)
 
 </div>
 

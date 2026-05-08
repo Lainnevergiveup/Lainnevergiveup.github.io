@@ -3,7 +3,7 @@
   "EMAIL": "lainhavenohair@gmail.com",
 
   "_comment_profile": "--- Profile Links ---",
-  "BLOG": "",
+  "BLOG": "https://lainnevergiveup.github.io/blog",
   "TWITTER": "",
   "PROJECT_PAGE": "",
   "DOCS_PAGE": "",
@@ -12,13 +12,13 @@
   "GOOGLE_SCHOLAR": "",
   "ORCID": "",
   "LINKEDIN": "",
-  "BILIBILI": "",
+  "BILIBILI": "42433305",
   "ZHIHU": "",
   "HUGGINGFACE": "",
   "KAGGLE": "",
 
   "_comment_nav": "--- Navigation Hub Cards (set URL to show, empty to hide) ---",
-  "BLOG_NAV": "",
+  "BLOG_NAV": "https://lainnevergiveup.github.io/blog",
   "PROJECTS_NAV": "",
   "RESEARCH_NAV": "",
   "ACADEMIC_NAV": "",
@@ -66,7 +66,7 @@
 
   "_comment_tech": "--- Tech Stack ---",
   "TECH_STACK": {
-    "languages": { "label_cn": "语言",       "label_en": "Languages",     "items": ["Python", "Java", "JavaScript", "SQL", "Bash"] },
+    "languages": { "label_cn": "语言",       "label_en": "Languages",     "items": ["Python", "Java",  "SQL", "Bash"] },
     "backend":   { "label_cn": "后端",       "label_en": "Backend",       "items": ["Spring Boot", "FastAPI", "Flask", "Node.js"] },
     "database":  { "label_cn": "数据库",     "label_en": "Database",      "items": ["MySQL", "Redis", "PostgreSQL"] },
     "ai":        { "label_cn": "AI / 数据",  "label_en": "AI / Data",     "items": ["PyTorch", "NumPy", "Pandas"] },
