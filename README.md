@@ -145,9 +145,9 @@ An experimental RAG knowledge base system for document retrieval.
 
 <div align="center">
 
-<img height="170" src="https://github-readme-stats.vercel.app/api?username=Lainnevergiveup&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&icon_color=A8B8D8&title_color=A8B8D8&text_color=8B949E" />
+<img height="170" src="https://github-readme-stats-kappa-steel.vercel.app/api?username=Lainnevergiveup&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&icon_color=A8B8D8&title_color=A8B8D8&text_color=8B949E" />
 &nbsp;&nbsp;
-<img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Lainnevergiveup&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A8B8D8&text_color=8B949E" />
+<img height="170" src="https://github-readme-stats-kappa-steel.vercel.app/api/top-langs/?username=Lainnevergiveup&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A8B8D8&text_color=8B949E" />
 
 <br/>
 

@@ -261,8 +261,8 @@ const Renderer = {
     el.innerHTML = `
       <h2 class="section-title">${title}</h2>
       <div class="stats-container">
-        <img src="https://github-readme-stats.vercel.app/api?username=${user}&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&icon_color=A8B8D8&title_color=A8B8D8&text_color=8B949E" alt="GitHub Stats" loading="lazy">
-        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=${user}&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A8B8D8&text_color=8B949E" alt="Top Languages" loading="lazy">
+        <img src="https://github-readme-stats-kappa-steel.vercel.app/api?username=${user}&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&icon_color=A8B8D8&title_color=A8B8D8&text_color=8B949E" alt="GitHub Stats" loading="lazy">
+        <img src="https://github-readme-stats-kappa-steel.vercel.app/api/top-langs/?username=${user}&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A8B8D8&text_color=8B949E" alt="Top Languages" loading="lazy">
         <img src="https://github-readme-streak-stats.herokuapp.com/?user=${user}&theme=tokyonight&hide_border=true&background=0D1117&ring=A8B8D8&fire=A8B8D8&currStreakLabel=A8B8D8" alt="Streak Stats" loading="lazy">
       </div>`;
     show(el);
