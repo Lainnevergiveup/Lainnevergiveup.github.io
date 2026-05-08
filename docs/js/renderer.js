@@ -374,7 +374,7 @@ const Renderer = {
       html += `<a href="https://github.com/${user}" target="_blank" rel="noopener"><img src="https://ghchart.rshah.org/${user}?theme=tokyonight" alt="Contribution Chart" loading="lazy" onerror="this.style.display='none'"></a>`;
     }
     if (config.SHOW_CONTRIBUTION_SNAKE === 'yes') {
-      html += `<img src="https://raw.githubusercontent.com/${user}/${user}/output/github-contribution-grid-snake.svg" alt="Contribution Snake" loading="lazy" onerror="this.style.display='none'">`;
+      html += `<img src="https://raw.githubusercontent.com/${user}/${user}.github.io/output/github-contribution-grid-snake.svg" alt="Contribution Snake" loading="lazy" onerror="this.style.display='none'">`;
     }
     html += '</div>';
     el.innerHTML = html;

@@ -263,7 +263,7 @@ An experimental RAG knowledge base system for document retrieval.
 
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/{{USERNAME}}/{{USERNAME}}/output/github-contribution-grid-snake.svg" alt="Snake Animation" />
+<img src="https://raw.githubusercontent.com/{{USERNAME}}/{{USERNAME}}.github.io/output/github-contribution-grid-snake.svg" alt="Snake Animation" />
 
 </div>
 
